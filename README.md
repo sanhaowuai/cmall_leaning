@@ -15,8 +15,8 @@
 
 已提交到本地但没有上传到远程库 
 
-+ 回退到上一次提交的状态 git revert HEAD  
-+ 回退到某个版本 git reset 057d
++ 回退到上一次提交的状态（本地的源码也会变为上一个版本的内容） git revert HEAD  
++ 回退到某个版本（保留源码） git reset 057d
 + 将本地的状态回退到和远程的一样  git reset –-hard origin/master  
 + git reset –-soft HEAD~3  
 + 回退a.py这个文件的版本到上一个版本 git reset HEAD^ a.py 

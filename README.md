@@ -12,6 +12,7 @@
 + 在远程的master基础上创建本地分支 git checkout -b v1.0 origin/master
 + 将本地分支推送到远程 git push origin HEAD -u
 + 将本地分支修改过的代码推送到远程分支 git push -u origin v1.0
+ceshi
 
 
 

@@ -1,10 +1,10 @@
-[git操作](#git-操作)  
+[1.git操作](#1-git-操作)  
 [标题2](#ceshi) 
 	
 
 # cmall_leaning
 
-# git 操作
+# 1. git 操作
 
 + 初始化  git init 
 + 添加  git add . 

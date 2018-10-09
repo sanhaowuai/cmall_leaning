@@ -38,7 +38,7 @@
 
 ### 1.2.1 退回到某一版本
 
-[参考博客](https://blog.csdn.net/gomeplus/article/details/78241070)
+[参考博客](https://blog.csdn.net/gomeplus/article/details/78241070)：https://blog.csdn.net/gomeplus/article/details/78241070
 
 1. 在“Show History”中找到当前版本（取名：newVersion）和想要回退到的版本（oldVersion）
 2. 选择newVersion和oldVersion点击“Copy Revision Number”复制两个版本的版本号：

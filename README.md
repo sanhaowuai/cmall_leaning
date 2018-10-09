@@ -17,6 +17,22 @@
 + 从远程分支基础上创建本地分支git checkout -b v1.0 origin/v1.0
 + 从远程只下载分支 git clone -b v1.0 https://github.com/sanhaowuai/cmall_leaning.git
 
+退回到某一版本
+
+1. 在“Show History”中找到当前版本（取名：newVersion）和想要回退到的版本（oldVersion）
+2. 选择newVersion和oldVersion点击“Copy Revision Number”复制两个版本的版本号：
+3. 右击项目依次选中：Git->Repository->Reset HEAD 
+4. 选中Reset Type:*Hard, To Commit:6bc5691cbe7304cb185b70fbc0dd975c7de86e8a（oldVersion）；然后点击Reset按钮*
+5. 这时本地代码已经回退到oldVersion，这时候如果直接push到远程仓库，会提示版本冲突，点击“cancel”取消
+6. 下面有两种解决冲突的方法
+    + 方法一 ：不解决，直接强制提交： 
+      + 打开Terminal，切换到项目所在目录 
+      + 执行：git push -f 
+    + 方法二： 
+      + 右击项目依次选中：Git->Repository->Reset HEAD 
+      + 选中Reset Type:Mixed, To Commit:2746f428a3d3d000bd1b0e886ef8167e1f73ec9c（newVersion）；然后点击Reset按钮 
+ 
+
 
 已提交到本地但没有上传到远程库 
 

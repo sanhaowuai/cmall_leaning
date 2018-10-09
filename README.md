@@ -1,10 +1,10 @@
-[标题1](#瓜子) 
+[标题1](#git-瓜子) 
 	[标题2](#ceshi) 
 	[标题3](#标题3) 
 
 # cmall_leaning
 
-# 瓜子
+# git 瓜子
 
 + 初始化  git init 
 + 添加  git add . 

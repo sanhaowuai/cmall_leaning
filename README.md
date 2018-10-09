@@ -17,7 +17,7 @@
 + 从远程分支基础上创建本地分支git checkout -b v1.0 origin/v1.0
 + 从远程只下载分支 git clone -b v1.0 https://github.com/sanhaowuai/cmall_leaning.git
 
-退回到某一版本
+退回到某一版本（[参考博客](https://blog.csdn.net/gomeplus/article/details/78241070)）
 
 1. 在“Show History”中找到当前版本（取名：newVersion）和想要回退到的版本（oldVersion）
 2. 选择newVersion和oldVersion点击“Copy Revision Number”复制两个版本的版本号：
@@ -31,6 +31,10 @@
     + 方法二： 
       + 右击项目依次选中：Git->Repository->Reset HEAD 
       + 选中Reset Type:Mixed, To Commit:2746f428a3d3d000bd1b0e886ef8167e1f73ec9c（newVersion）；然后点击Reset按钮 
+      + 这时你会发现，最新版本有回到newVersion。但是代码还是oldVersion的代码，这时候重push到远程仓库就不会版本冲突了 
+    + 方法一vs方法二 
+      + 方法一会将回退的提交记录抹去，而方法二会保留 
+        
  
 
 

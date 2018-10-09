@@ -1,6 +1,8 @@
+[TOC]
+
 # cmall_leaning
 
-#git 操作
+# 1. git 操作
 
 + 初始化  git init 
 + 添加  git add . 
@@ -46,5 +48,5 @@
 + 回退a.py这个文件的版本到上一个版本 git reset HEAD^ a.py 
 + 回退所有内容到上一个版本  git reset HEAD^  
 
-
+# 2. git 操作
 

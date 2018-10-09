@@ -1,10 +1,14 @@
-[1.git操作](#1-git-操作)  
-[标题2](#ceshi) 
+>[1. git操作](#1-git-操作)  
+>>[1.1 常用命令](#11-常用命令)  
+>>>[1.2.1 退回到某一版本](#121-退回到某一版本) 
+>[标题2](#ceshi) 
 	
 
 # cmall_leaning
 
 # 1. git 操作
+
+## 1.1 常用命令
 
 + 初始化  git init 
 + 添加  git add . 
@@ -20,8 +24,18 @@
 + 从远程下载（只能下载master）git clone git@github.com:sanhaowuai/cmall_leaning.git
 + 从远程分支基础上创建本地分支git checkout -b v1.0 origin/v1.0
 + 从远程只下载分支 git clone -b v1.0 https://github.com/sanhaowuai/cmall_leaning.git
+   
+## 1.2 已提交到本地但没有上传到远程库 
 
-退回到某一版本（[参考博客](https://blog.csdn.net/gomeplus/article/details/78241070)）
++ 回退到上一次提交的状态（本地的源码也会变为上一个版本的内容） git revert HEAD  
++ 回退到某个版本（保留源码,可省略--mixed） git reset 057d
++ 将本地的状态回退到和远程的一样  git reset --hard origin/master   
++ 回退a.py这个文件的版本到上一个版本 git reset HEAD^ a.py 
++ 回退所有内容到上一个版本  git reset HEAD^  
+
+### 1.2.1 退回到某一版本
+
+[参考博客](https://blog.csdn.net/gomeplus/article/details/78241070)
 
 1. 在“Show History”中找到当前版本（取名：newVersion）和想要回退到的版本（oldVersion）
 2. 选择newVersion和oldVersion点击“Copy Revision Number”复制两个版本的版本号：
@@ -38,14 +52,6 @@
       + 这时你会发现，最新版本有回到newVersion。但是代码还是oldVersion的代码，这时候重push到远程仓库就不会版本冲突了 
     + 方法一vs方法二 
       + 方法一会将回退的提交记录抹去，而方法二会保留 
-        
-已提交到本地但没有上传到远程库 
-
-+ 回退到上一次提交的状态（本地的源码也会变为上一个版本的内容） git revert HEAD  
-+ 回退到某个版本（保留源码,可省略--mixed） git reset 057d
-+ 将本地的状态回退到和远程的一样  git reset --hard origin/master   
-+ 回退a.py这个文件的版本到上一个版本 git reset HEAD^ a.py 
-+ 回退所有内容到上一个版本  git reset HEAD^  
 
 # ceshi
 

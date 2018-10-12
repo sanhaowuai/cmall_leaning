@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 控制台输出 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoding>UTF-8</encoding>
         <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
             <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -10,14 +12,18 @@
         </filter>
     </appender>
 
+    <!--滚动记录文件，先将日志文件指定到文件，当符合某个条件时，将日志记录到其他文件-->
     <appender name="mmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/mmall.log</File>-->
         <File>/developer/apache-tomcat-7.0.73/logs/mmall.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
             <fileNamePattern>/developer/apache-tomcat-7.0.73/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
+            <!--日志文件保留天数-->
             <maxHistory>10</maxHistory>
         </rollingPolicy>
+        <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
         <encoder>
             <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
         </encoder>
@@ -27,10 +33,13 @@
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/error.log</File>-->
         <File>/developer/apache-tomcat-7.0.73/logs/error.log</File>
+        <!--使用时间的滚动切割策略，每天0点自动生成一份新的日志文件-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/devsoft/apache-tomcat-7.0.73/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <!--<fileNamePattern>d:/mmalllog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
+            <!--日志被追加到文件结尾-->
             <append>true</append>
+            <!--最大天数10天-->
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -42,7 +51,9 @@
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
-
+    <!-- com.mmall为java中的包，打印级别为“INFO”，additivity属性为false，表示此loger的打印信息不再向上级传递，
+     指定了名字为mmall和console的appender
+     -->
     <logger name="com.mmall" additivity="false" level="INFO" >
         <appender-ref ref="mmall" />
         <appender-ref ref="console"/>
@@ -51,7 +62,9 @@
 
 
     <!-- geelynote mybatis log 日志 -->
-
+    <!--将控制com.mmall.dao包下的所有类的日志的打印，但是并没用设置打印级别，所以继承他的上级<root>的日志级别“DEBUG”；
+没有设置addtivity，默认为true，将此loger的打印信息向上级传递；
+没有设置appender，此loger本身不打印任何信息。-->
     <logger name="com.mmall.dao" level="DEBUG"/>
 
     <!--<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" >-->

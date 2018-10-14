@@ -7,8 +7,15 @@
 >>>[1.2.1 退回到某一版本](#121-退回到某一版本) 
 
 >[2. 配置文件](#2-配置文件) 
->>[2.1 logback](#21-logback)  
->>>[1.2.1 退回到某一版本](#121-退回到某一版本) 
+>>[2.1 generator](#21-generator) 
+>>[2.2 logback](#22-logback)  
+
+>[3. 用户模块](#3-用户模块) 
+>>[3.1 登陆功能](#31-登陆功能) 
+>>[3.2 登出、注册、校验](#32-登出、注册、校验)
+>>[3.3 获取用户登录信息、忘记密码、提示问题与答案](#33-获取用户登录信息、忘记密码、提示问题与答案)
+>>[3.4 忘记密码中的重置密码](#34-忘记密码中的重置密码)
+>>[3.5 登陆状态中的重置密码](#35-登陆状态中的重置密码)
 
 # 1. git 操作
 
@@ -59,7 +66,44 @@
 
 # 2. 配置文件
 
-## 2.1 logback
+## 2.1 generator
+
+生成后的xml文件修改其中的create_time与update_time赋值，使用自带函数now()。
+
+## 2.2 logback
 
 [参考配置详解](https://www.cnblogs.com/cb0327/p/5759441.html)
 
+# 3. 用户模块
+
+## 3.1 登陆功能
+
+1. 新建一个包portal(门户的意思，给前端用的)，建一个UserController类，建一个login方法（不做任何实现）；在service中新建一个IUserService
+接口，创建一个login参数为username,password方法,新建一个impl包->UserServiceImpl实现类（不做任何实现）。
+2. 在commen包中创建ServerResponse类（通用数据响应对象）;属性为status，msg,data;其中data为泛型。四种私有构造方法，并提供获取属性方法，
+isSuccess方法，获取构造不同对象的五种方法。
+3. 在commen中创建ResponseCode（响应编码枚举类）用来响应状态。
+4. 创建checkUsername(检查用户是否存在)、selectLogin（登陆查询）
+5. 完善service中的login及controller中的login方法。
+
+`注意：`若是在service中使用@Autowired注入UserMapper的时候，出现报错，此时，需配置Setting->Editor->Inspections->Spring Core->Code->点中Autowiting for Bean Class，选择右边Severity为warning
+
+## 3.2 登出、注册、校验
+
+1. 登出方法 logout
+2. 注册方法 register：增加checkUsername与checkEmail校验，Const中增加用户分组，默认注册用户是普通用户
+3. 校验用户名与email方法：checkValid，增加MD5密码加密，Const中增加type类型，username与email，将注册方法中的校验用checkValid进行复用。
+
+## 3.3 获取用户登录信息、忘记密码、提示问题与答案
+
+1. 获取用户信息：getUserInfo
+2. 获取密码提示问题：forgetGetQuestion
+3. 校验回答问题是否正确：forgetCheckAnswer，common包中增加TokenCache类，问题回答正确后，将token放在本地缓存。
+
+## 3.4 忘记密码中的重置密码
+
+1. 重置密码：forgetResetPassword，将token_前缀放入TokenCache类中
+
+## 3.5 登陆状态中的重置密码
+
+1. 重置密码：resetPassword，使用自动生成的dao方法updateByPrimaryKeySelective，选择性更新

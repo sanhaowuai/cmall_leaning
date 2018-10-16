@@ -8,7 +8,7 @@
 
 >[2. 配置文件](#2-配置文件) 
 >>[2.1 generator](#21-generator)   
->>[2.2 下载破解mybatis plugin](#22-下载破解mybatis plugin)   
+>>[2.2 下载破解mybatis plugin](#22-下载破解mybatis-plugin)   
 >>[2.3 logback](#23-logback)  
 
 >[3. 用户模块](#3-用户模块) 

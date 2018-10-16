@@ -16,7 +16,10 @@
 >>[3.2 登出、注册、校验](#32-登出、注册、校验)  
 >>[3.3 获取用户登录信息、忘记密码、提示问题与答案](#33-获取用户登录信息、忘记密码、提示问题与答案)  
 >>[3.4 忘记密码中的重置密码](#34-忘记密码中的重置密码)  
->>[3.5 登陆状态中的重置密码](#35-登陆状态中的重置密码)  
+>>[3.5 登陆状态中的重置密码](#35-登陆状态中的重置密码)    
+>>[3.6 更新用户个人信息功能开发](#35-更新用户个人信息功能开发)  
+>>[3.7 获取用户详细信息及MD5加密补充](#37-获取用户详细信息及MD5加密补充)   
+
 
 # 1. git 操作
 
@@ -47,7 +50,7 @@
 
 ### 1.2.1 退回到某一版本
 
-[参考博客](https://blog.csdn.net/gomeplus/article/details/78241070)：https://blog.csdn.net/gomeplus/article/details/78241070
+[参考博客：https://blog.csdn.net/gomeplus/article/details/78241070](https://blog.csdn.net/gomeplus/article/details/78241070)：https://blog.csdn.net/gomeplus/article/details/78241070
 
 1. 在“Show History”中找到当前版本（取名：newVersion）和想要回退到的版本（oldVersion）
 2. 选择newVersion和oldVersion点击“Copy Revision Number”复制两个版本的版本号：
@@ -71,7 +74,12 @@
 
 生成后的xml文件修改其中的create_time与update_time赋值，使用自带函数now()。
 
+`注意：`在选择创建的xml语句中，<if test="createTime != null" >和update_time
+是需要去掉的，因为使用了now()函数，创建时更新字段为空。同理，更新也一样。
+
 ## 2.2 下载破解mybatis plugin
+
+[下载文件路径：https://github.com/FanVV/mybatis_plus](https://github.com/FanVV/mybatis_plus)
 
 关闭idea(此mybatis plugin的版本为2.9.2)
 1. 打开我的电脑，找到路径C:\Users\爱迪生\.IntelliJIdea2018.1\config\plugins
@@ -80,7 +88,7 @@
 
 ## 2.3 logback
 
-[参考配置详解](https://www.cnblogs.com/cb0327/p/5759441.html)
+[配置详解：https://www.cnblogs.com/cb0327/p/5759441.html](https://www.cnblogs.com/cb0327/p/5759441.html)
 
 # 3. 用户模块
 
@@ -110,8 +118,22 @@ isSuccess方法，获取构造不同对象的五种方法。
 
 ## 3.4 忘记密码中的重置密码
 
-1. 重置密码：forgetResetPassword，将token_前缀放入TokenCache类中
+1. 重置密码：forgetResetPassword，将token_前缀放入TokenCache类中，前端传入的forgetToken
+与guava缓存中的token是否一致，一致允许修改密码。
 
 ## 3.5 登陆状态中的重置密码
 
 1. 重置密码：resetPassword，使用自动生成的dao方法updateByPrimaryKeySelective，选择性更新
+
+## 3.6 更新用户个人信息功能开发
+
+1. 更新用户个人信息：update_information，根据当前用户id查询email是否存在，更新成功后需更新
+session信息。
+
+## 3.7 获取用户详细信息及MD5加密补充
+
+1. 获取用户详细信息:get_information,需要将得到用户的密码置为空
+2. 管理员登陆：创建backend包，并创建UserManageController类，需要判断登陆的角色是否是
+Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成功。
+
+

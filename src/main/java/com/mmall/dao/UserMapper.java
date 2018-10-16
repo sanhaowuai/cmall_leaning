@@ -69,4 +69,12 @@ public interface UserMapper {
      * @return
      */
     int checkPassword(@Param(value = "password")String password,@Param("userId")int userId);
+
+    /**
+     * 查询email是否存在
+     * @param email
+     * @param userId
+     * @return
+     */
+    int checkEmailByUserId(@Param(value = "email")String email,@Param(value = "userId")int userId);
 }

@@ -75,4 +75,18 @@ public interface IUserService {
      * @return
      */
     ServerResponse<String> resetPassword(String passwordOld, String passwordNew, User user);
+
+    /**
+     * 更新用户个人信息
+     * @param user
+     * @return
+     */
+    ServerResponse<User> updateInformation(User user);
+
+    /**
+     * 获取详细信息
+     * @param userId
+     * @return
+     */
+    ServerResponse<User> getInformation(int userId);
 }

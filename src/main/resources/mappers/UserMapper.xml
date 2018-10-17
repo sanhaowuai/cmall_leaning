@@ -31,10 +31,10 @@
   <insert id="insert" parameterType="com.mmall.pojo.User" >
     insert into mmall_user (id, username, password, 
       email, phone, question, 
-      answer, role, create_time)
+      answer, role, create_time,update_time)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now())
+      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),now())
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.User" >
     insert into mmall_user
@@ -64,6 +64,7 @@
         role,
       </if>
         create_time,
+        update_time,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -90,7 +91,7 @@
       <if test="role != null" >
         #{role,jdbcType=INTEGER},
       </if>
-        now(),
+        now(),now(),
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.User" >

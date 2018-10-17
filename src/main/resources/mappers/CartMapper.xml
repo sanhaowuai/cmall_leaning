@@ -27,9 +27,9 @@
   </delete>
   <insert id="insert" parameterType="com.mmall.pojo.Cart" >
     insert into mmall_cart (id, user_id, product_id, 
-      quantity, checked, create_time)
+      quantity, checked, create_time,update_time)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
-      #{quantity,jdbcType=INTEGER}, #{checked,jdbcType=INTEGER}, now())
+      #{quantity,jdbcType=INTEGER}, #{checked,jdbcType=INTEGER}, now(),now())
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Cart" >
     insert into mmall_cart
@@ -49,7 +49,7 @@
       <if test="checked != null" >
         checked,
       </if>
-      create_time,
+      create_time,update_time,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -67,7 +67,7 @@
       <if test="checked != null" >
         #{checked,jdbcType=INTEGER},
       </if>
-      now(),
+      now(),now(),
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.Cart" >

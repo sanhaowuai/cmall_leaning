@@ -74,8 +74,9 @@
 
 生成后的xml文件修改其中的create_time与update_time赋值，使用自带函数now()。
 
-`注意：`在选择创建的xml语句中，<if test="createTime != null" >和update_time
-是需要去掉的，因为使用了now()函数，创建时更新字段为空。同理，更新也一样。
+`注意：`在选择创建的xml语句中，<if test="createTime != null" >和<if test="updateteTime != null" >
+是需要去掉的，因为使用了now()函数，创建时更新字段为空,但更新字段不能去除，因为字段性质是非空。同理，更新也一样，但更新
+时，创建时间的字段可以去掉。
 
 ## 2.2 下载破解mybatis plugin
 
@@ -135,5 +136,10 @@ session信息。
 1. 获取用户详细信息:get_information,需要将得到用户的密码置为空
 2. 管理员登陆：创建backend包，并创建UserManageController类，需要判断登陆的角色是否是
 Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成功。
+
+-------------------------------------
+mysql 遇到的问题  
+[MYSQL5.7版本sql_mode=only_full_group_by问题]https://www.cnblogs.com/anstoner/p/6414440.html
+-------------------------------------
 
 

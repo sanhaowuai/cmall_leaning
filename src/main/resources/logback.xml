@@ -15,10 +15,11 @@
     <!--滚动记录文件，先将日志文件指定到文件，当符合某个条件时，将日志记录到其他文件-->
     <appender name="mmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/mmall.log</File>-->
-        <File>/developer/apache-tomcat-7.0.73/logs/mmall.log</File>
+        <!--<File>/developer/apache-tomcat-7.0.73/logs/mmall.log</File>-->
+        <File>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/logs/mmall.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <fileNamePattern>/developer/apache-tomcat-7.0.73/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <fileNamePattern>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
             <!--日志文件保留天数-->
             <maxHistory>10</maxHistory>
@@ -32,10 +33,11 @@
 
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/error.log</File>-->
-        <File>/developer/apache-tomcat-7.0.73/logs/error.log</File>
+        <!--<File>/developer/apache-tomcat-7.0.73/logs/error.log</File>-->
+        <File>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/error/mmallError.log</File>
         <!--使用时间的滚动切割策略，每天0点自动生成一份新的日志文件-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/devsoft/apache-tomcat-7.0.73/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <fileNamePattern>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/error/mmallError.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <!--<fileNamePattern>d:/mmalllog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
             <!--日志被追加到文件结尾-->
             <append>true</append>

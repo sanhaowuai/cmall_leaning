@@ -1,5 +1,7 @@
 package com.mmall.pojo;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.util.Date;
 
 public class User {

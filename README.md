@@ -19,9 +19,12 @@
 >>[3.5 登陆状态中的重置密码](#35-登陆状态中的重置密码)    
 >>[3.6 更新用户个人信息功能开发](#36-更新用户个人信息功能开发)  
 >>[3.7 获取用户详细信息及MD5加密补充](#37-获取用户详细信息及MD5加密补充)  
+>>[3.8 测试问题](#38-测试问题)  
 
 >[4. 分类模块](#4-分类模块)    
 >>[4.1 添加分类和更新分类名字](#41-添加分类和更新分类名字)  
+>>[4.2 查询节点和递归查找](#42-查询节点和递归查找)  
+
 
 
 # 1. git 操作
@@ -140,10 +143,14 @@ session信息。
 2. 管理员登陆：创建backend包，并创建UserManageController类，需要判断登陆的角色是否是
 Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成功。
 
--------------------------------------
-mysql 遇到的问题  
+## 3.8 测试问题
+
+1. 请求返回的时间戳是Unix的，需要改写。  
+    [解决参考方法](http://godfox.iteye.com/blog/658427)
+    + 先定义自己需要的格式，在util包中加入CustomDateSerializer类
+    + 然后在POJO上找到日期的get方法，加入@JsonSerialize(using = CustomDateSerializer.class) 
+2. mysql 遇到的问题  
 [MYSQL5.7版本sql_mode=only_full_group_by问题]https://www.cnblogs.com/anstoner/p/6414440.html
--------------------------------------
 
 # 4. 分类模块
 
@@ -151,5 +158,9 @@ mysql 遇到的问题
 
 1. 新增CategoryManageController、CategoryServiceImpl、ICategoryService类
 2. 新增分类：addCategory；更新分类名字：setCategoryName；分别校验用户是否登录并是否是管理员
+
+## 4.2 查询节点和递归查找
+
+[深入详解SetHash的元素为什么要重写hashCode和equals方法](https://blog.csdn.net/w3045872817/article/details/73294491)
 
 

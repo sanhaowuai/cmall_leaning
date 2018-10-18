@@ -1,5 +1,6 @@
 package com.mmall.pojo;
 
+import com.mmall.util.CustomDateSerializer;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.util.Date;
@@ -105,7 +106,7 @@ public class User {
     public void setRole(Integer role) {
         this.role = role;
     }
-
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getCreateTime() {
         return createTime;
     }
@@ -113,7 +114,7 @@ public class User {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getUpdateTime() {
         return updateTime;
     }

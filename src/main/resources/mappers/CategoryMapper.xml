@@ -98,4 +98,11 @@
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--根据parent_id获取子节点-->
+  <select id="selectCategoryChildrenByParentId" parameterType="int" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mmall_category
+    where parent_id=#{parentId}
+  </select>
 </mapper>

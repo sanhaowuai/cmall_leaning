@@ -46,7 +46,10 @@
         + bare 仓库可以被 push，因为它禁止在仓库里工作（没有暂存文件），不存在上面的问题。文件夹通常命名为 xxx.git
         + 现在的代码托管服务 github 这些，新建仓库都是 bare，所以见到的克隆地址都是 xxx.git
 + 添加  git add . 
-+ 提交到本地库 git commit -am "注释"
++ 提交到本地库 git commit -m "注释"
+    + git commit 可进行详细叙述提交的原因，再出现的编辑页面中什么也不写，退出则不进行提交；若在最后面写入提交内容保存退出，直接自动进行提交
+    + -am 可以不先git add 直接 git commit -am即可。
+    + -m 是进行简单描述提交的原因。
 + 链接远程 git remote add origin  git@github.com:sanhaowuai/cmall_leaning.git
 + 查看本地分支 git branch
 + 本地从远程库更新（第一次链接远程库需要，以后直接git pull）git pull origin master --allow-unrelated-histories

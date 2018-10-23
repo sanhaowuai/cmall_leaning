@@ -102,7 +102,7 @@ public class CategoryManageController {
     }
 
     /**
-     * 递归获取当前分类及字节点的分类
+     * 递归获取当前分类及子节点的id
      * @param session
      * @param categoryId
      * @return

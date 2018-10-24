@@ -61,6 +61,10 @@
 + 从远程下载（只能下载master）git clone git@github.com:sanhaowuai/cmall_leaning.git
 + 从远程分支基础上创建本地分支git checkout -b v1.0 origin/v1.0
 + 从远程只下载分支 git clone -b v1.0 https://github.com/sanhaowuai/cmall_leaning.git
++ 分支 
+    + 查看分支：git branch -a
+    + 删除本地分支：git branch -d <分支名称>;git branch -d v1.0
+    + 删除远程分支: git push origin --delete <分支名称>;git push origin --delete v1.0
    
 ## 1.2 版本修改 
 

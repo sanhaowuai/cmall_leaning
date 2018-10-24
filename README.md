@@ -56,20 +56,33 @@
 + 推送到远程 git push -u origim master
 + 查看远程分支 git branch -r
 + 在远程的master基础上创建本地分支 git checkout -b v1.0 origin/master
+    + 在当前的分支上创建v1.0分支：git checkout -b v1.0 
 + 将本地分支推送到远程 git push origin HEAD -u
+    + 远程分支若没有v1.0,可也直接使用 git push -u origin v1.0
 + 将本地分支修改过的代码推送到远程分支 git push -u origin v1.0
 + 从远程下载（只能下载master）git clone git@github.com:sanhaowuai/cmall_leaning.git
 + 从远程分支基础上创建本地分支git checkout -b v1.0 origin/v1.0
 + 从远程只下载分支 git clone -b v1.0 https://github.com/sanhaowuai/cmall_leaning.git
 + 分支 
-    + 查看分支：git branch -a
+    + 查看本地分支：git branch
+    + 查看所有分支：git branch -a
+    + 查看远程分支：git branch -r
+    + 切换本地分支：git checkout v1.0
     + 删除本地分支：git branch -d <分支名称>;git branch -d v1.0
     + 删除远程分支: git push origin --delete <分支名称>;git push origin --delete v1.0
++ 合并分支 
+    + 首先切换到 master 分支：git checkout master
+    + 创建合并提交：git merge --no-ff v1.0
+    + 将编辑器中显示的内容保存，关闭编辑器
++ 以图表形式查看分支：git log --graph    
++ 查看当前仓库的操作日志：git reflog
+    
    
 ## 1.2 版本修改 
 
 + 回退到上一次提交的状态（本地的源码也会变为上一个版本的内容） git revert HEAD  
 + 回退到某个版本（保留源码,可省略--mixed） git reset 057d
+    + 不保留源码 git reset --hard 057d
 + 将本地的状态回退到和远程的一样  git reset --hard origin/master   
 + 回退a.py这个文件的版本到上一个版本 git reset HEAD^ a.py 
 + 回退所有内容到上一个版本  git reset HEAD^  

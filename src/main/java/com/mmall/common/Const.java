@@ -11,7 +11,7 @@ public class Const {
 
     //当前用户
     public static final String CURRENT_USER = "currentUser";
-    //内部接口类实现用户分组，使用枚举类也是可以的，只是显得过于臃肿
+    //内部接口类实现用户分组，使用枚举类也是可以的，只是显得过于臃肿，还需增加描述。
     public interface Role{
         int ROLE_CUSTOMER = 0; //普通用户
         int ROLE_ADMIN = 1;//管理员

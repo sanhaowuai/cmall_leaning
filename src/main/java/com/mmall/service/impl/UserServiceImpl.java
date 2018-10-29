@@ -133,7 +133,7 @@ public class UserServiceImpl implements IUserService {
         if(StringUtils.isBlank(token)){
             return ServerResponse.createByErrorMessage("token无效或者过期");
         }
-        //token验证通过
+        //token验证通过,null.equals(null)会报错，StringUtils.equals(null,null)结果是true
         if(StringUtils.equals(forgetToken,token)){
             String md5password = MD5Util.MD5EncodeUtf8(passwordNew);
             int rowCount = userMapper.updatePasswordByUsername(username,md5password);

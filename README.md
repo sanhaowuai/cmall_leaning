@@ -28,7 +28,9 @@
 
 >[5. 商品管理模块](#5-商品管理模块)  
 >>[5.1 后台商品新增、更新、上下架](#51-后台商品新增、更新、上下架)  
->>[5.2 后台商品详情、propertiesUtil、DateTimeUtil](#52-后台商品详情、propertiesUtil、DateTimeUtil)  
+>>[5.2 后台商品详情、propertiesUtil、DateTimeUtil](#52-后台商品详情、propertiesUtil、DateTimeUtil)   
+>>[5.3 后台商品列表动态分页](#53-后台商品列表动态分页)   
+>>[5.4 后台商品搜索功能](#54-后台商品搜索功能)   
 
 
 
@@ -182,6 +184,7 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
     [解决参考方法](http://godfox.iteye.com/blog/658427)
     + 先定义自己需要的格式，在util包中加入CustomDateSerializer类
     + 然后在POJO上找到日期的get方法，加入@JsonSerialize(using = CustomDateSerializer.class) 
+    + 以上，科技解决时间格式问题，但在5.2中会写时间处理类来处理此类问题
 2. mysql 遇到的问题  
 [MYSQL5.7版本sql_mode=only_full_group_by问题]https://www.cnblogs.com/anstoner/p/6414440.html
 
@@ -212,6 +215,21 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
     + 修改产品销售状态：setSaleStatus
     
 ## 5.2 后台商品详情、propertiesUtil、DateTimeUtil   
+
+1. 新增vo包及ProductDetailVo类
+2. 新增PropertiesUtil读取配置文件公共类
+3. 新增DateTimeUtil日期转化公共类
+
+## 5.3 后台商品列表动态分页
+
+1. 方法：getList
+2. 新增ProductListVo类
+3. 使用pagehelper中的PageInfo进行分页
+
+## 5.4 后台商品搜索功能
+
+1. 方法：productSearch
+2. sql中含有<where>标签，where标签默认去除离他最近的and逻辑词。
 
 
 

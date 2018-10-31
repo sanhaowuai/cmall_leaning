@@ -1,7 +1,9 @@
 package com.mmall.service;
 
+import com.github.pagehelper.PageInfo;
 import com.mmall.common.ServerResponse;
 import com.mmall.pojo.Product;
+import com.mmall.vo.ProductDetailVo;
 
 /**
  * @BelongsProject: cmall
@@ -26,4 +28,29 @@ public interface IProductService {
      * @return
      */
     ServerResponse setSaleStatus(Integer productId,Integer status);
+
+    /**
+     * 获取产品的详细信息
+     * @param productId
+     * @return
+     */
+    ServerResponse<ProductDetailVo> manageProductDetail(Integer productId);
+
+    /**
+     * 获取产品List
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    ServerResponse<PageInfo> getProductList(int pageNum, int pageSize);
+
+    /**
+     * 搜索商品
+     * @param productName
+     * @param productId
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    ServerResponse<PageInfo> searchProduct(String productName,Integer productId,int pageNum,int pageSize);
 }

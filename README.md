@@ -56,6 +56,7 @@
     + -am 可以不先git add 直接 git commit -am即可。
     + -m 是进行简单描述提交的原因。
 + 链接远程 git remote add origin  git@github.com:sanhaowuai/cmall_leaning.git
+    + 删除远程链接 git remote rm origin
 + 查看本地分支 git branch
 + 本地从远程库更新（第一次链接远程库需要，以后直接git pull）git pull origin master --allow-unrelated-histories
 + 推送到远程 git push -u origin master

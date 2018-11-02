@@ -16,7 +16,7 @@ public enum ResponseCode {
 
     private final int code;
     private final String desc;
-
+    //枚举类就是有包含有固定数量实例（并且实例的值也固定）的特殊类,构造器默认使用private修饰
     ResponseCode(int code, String desc) {
         this.code = code;
         this.desc = desc;

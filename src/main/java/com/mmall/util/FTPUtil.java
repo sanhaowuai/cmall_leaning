@@ -17,11 +17,17 @@ import java.util.List;
  */
 public class FTPUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(FTPUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(FTPUtil.class);
 
     private static String ftpIp = PropertiesUtil.getProperty("ftp.server.ip");
     private static String ftpUser = PropertiesUtil.getProperty("ftp.user");
     private static String ftpPass = PropertiesUtil.getProperty("ftp.pass");
+
+    private String ip;
+    private int port;
+    private String user;
+    private String pwd;
+    private FTPClient ftpClient;
 
     public FTPUtil(String ip,int port,String user,String pwd){
         this.ip = ip;
@@ -30,6 +36,12 @@ public class FTPUtil {
         this.pwd = pwd;
     }
 
+    /**
+     * 对外开放上传的接口
+     * @param fileList
+     * @return
+     * @throws IOException
+     */
     public static boolean uploadFile(List<File> fileList) throws IOException {
 
         FTPUtil ftpUtil = new FTPUtil(ftpIp,21,ftpUser,ftpPass);
@@ -39,6 +51,14 @@ public class FTPUtil {
         return result;
     }
 
+    /**
+     * 连接FTP，配置，上传
+     * @param remotePath
+     * @param fileList
+     * @return
+     * @throws IOException
+     * 虽然此项目中使用了一个form上传，只能上传一个文件，此处fileList也可接受多个文件同时上传的需求
+     */
     private boolean uploadFile(String remotePath,List<File> fileList) throws IOException {
 
         boolean uploaded = true;
@@ -46,7 +66,7 @@ public class FTPUtil {
         //连接FTP服务器
         if(connectServer(this.ip,this.port,this.user,this.pwd)){
             try {
-                //转到指定上传目录
+                //转到指定上传目录(ftp下的img文件夹)
                 ftpClient.changeWorkingDirectory(remotePath);
                 //缓冲区大小1MB
                 ftpClient.setBufferSize(1024);
@@ -84,12 +104,6 @@ public class FTPUtil {
         }
         return isSuccess;
     }
-
-    private String ip;
-    private int port;
-    private String user;
-    private String pwd;
-    private FTPClient ftpClient;
 
     public String getIp() {
         return ip;

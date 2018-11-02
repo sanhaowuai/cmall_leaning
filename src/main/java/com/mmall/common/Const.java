@@ -18,6 +18,27 @@ public class Const {
     }
     //注册实时校验判断type是email
     public static final String EMAIL = "email";
+
     //注册实时校验判断type是username
     public static final String USERNAME = "username";
+
+    //前台商品状态(是否在线)
+    public enum ProductStatusEnum{
+
+        ON_SALE(1,"在线");
+        private int code;
+        private String value;
+        ProductStatusEnum(int code,String value){
+            this.code = code;
+            this.value = value;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
 }

@@ -169,25 +169,27 @@ public class ProductManageController {
     @ResponseBody
     public ServerResponse upload(HttpSession session,@RequestParam(value = "upload_file",required = false)MultipartFile file, HttpServletRequest request){
 
-        User user = (User)session.getAttribute(Const.CURRENT_USER);
+        /*User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
         if(iUserService.checkAdminRole(user).isSuccess()){
-            //填充业务
-            //request.getSession().getServletContext() 获取的是Servlet容器对象，相当于tomcat容器了,getRealPath("upload") 获取实际路径
-            String path = request.getSession().getServletContext().getRealPath("upload");
-            String targetFileName = iFileService.upload(file,path);
-            String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
-            //guava提供
-            Map fileMap = Maps.newHashMap();
-            fileMap.put("uri",targetFileName);
-            fileMap.put("url",url);
-            return ServerResponse.createBySuccess(fileMap);
+
         }else{
             return ServerResponse.createByErrorMessage("无权限操作");
-        }
+        }*/
+        //填充业务
+        //request.getSession().getServletContext() 获取的是Servlet容器对象，相当于tomcat容器了,getRealPath("upload") 获取实际路径
+        String path = request.getSession().getServletContext().getRealPath("upload");
+        String targetFileName = iFileService.upload(file,path);
+        String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
+        //guava提供
+        Map fileMap = Maps.newHashMap();
+        fileMap.put("uri",targetFileName);
+        fileMap.put("url",url);
+        return ServerResponse.createBySuccess(fileMap);
     }
+
 
     /**
      * 富文本上传图片

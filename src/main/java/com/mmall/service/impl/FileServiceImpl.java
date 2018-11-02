@@ -1,8 +1,10 @@
 package com.mmall.service.impl;
 
 import com.google.common.collect.Lists;
+import com.mmall.common.ServerResponse;
 import com.mmall.service.IFileService;
 import com.mmall.util.FTPUtil;
+import com.mmall.vo.ProductDetailVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,7 @@ import java.util.UUID;
 @Service("iFileService")
 public class FileServiceImpl implements IFileService {
 
-    private Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
 
     public String upload(MultipartFile file,String path){
         //得到上传时的文件名
@@ -38,7 +40,7 @@ public class FileServiceImpl implements IFileService {
         }
         File targetFile = new File(path,uploadFileName);
         try {
-            //上传，spring mvc提供MultipartFile
+            //上传，spring mvc提供MultipartFile,将file移动到targetfile目录下
             file.transferTo(targetFile);
             //将targetFile上传到FTP服务器
             FTPUtil.uploadFile(Lists.newArrayList(targetFile));

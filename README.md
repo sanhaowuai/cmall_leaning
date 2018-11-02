@@ -28,9 +28,12 @@
 
 >[5. 商品管理模块](#5-商品管理模块)  
 >>[5.1 后台商品新增、更新、上下架](#51-后台商品新增、更新、上下架)  
->>[5.2 后台商品详情、propertiesUtil、DateTimeUtil](#52-后台商品详情、propertiesUtil、DateTimeUtil)   
->>[5.3 后台商品列表动态分页](#53-后台商品列表动态分页)   
->>[5.4 后台商品搜索功能](#54-后台商品搜索功能)   
+>>[5.2 后台商品详情、propertiesUtil、DateTimeUtil](#52-后台商品详情、propertiesUtil、DateTimeUtil)    
+>>[5.3 后台商品列表动态分页](#53-后台商品列表动态分页)    
+>>[5.4 后台商品搜索功能](#54-后台商品搜索功能)     
+>>[5.5 后台商品图片的springMvc上传与富文本上传FTP](#55-后台商品图片的springMvc上传与富文本上传FTP)   
+>>[5.6 前台商品详情、列表、搜索、动态排序](##56-前台商品详情、列表、搜索、动态排序)    
+
 
 
 
@@ -230,6 +233,16 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 
 1. 方法：productSearch
 2. sql中含有<where>标签，where标签默认去除离他最近的and逻辑词。
+
+## 5.5 后台商品图片的springMvc上传与富文本上传FTP
+
+0. 打开ftp服务器;mmall.properties配置文件中需填写对应的ftp信息。
+1. 方法：upload
+2. 创建类：FileServiceImpl与IFileService
+3. util中创建FTPUtil类
+4. 富文本使用simditor，需按照规定返回success,msg,file_path三个参数；方法：richtextImgUpload
+
+## 5.6 前台商品详情、列表、搜索、动态排序
 
 
 

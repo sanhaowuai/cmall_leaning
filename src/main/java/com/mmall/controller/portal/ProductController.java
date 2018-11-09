@@ -36,11 +36,23 @@ public class ProductController {
         return iProductService.getProductDetail(productId);
     }
 
+    /**
+     * 前台获取商品列表,提供精确查找
+     * @param keyword
+     * @param categoryId
+     * @param pageNum
+     * @param pageSize
+     * @param orderBy
+     * @return
+     */
+    @RequestMapping("list.do")
+    @ResponseBody
     public ServerResponse<PageInfo> list(@RequestParam(value = "keyword",required = false) String keyword,
-                                         @RequestParam(value = "productId",required = false) Integer productId,
+                                         @RequestParam(value = "categoryId",required = false) Integer categoryId,
                                          @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
-                                         @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+                                         @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
+                                         @RequestParam(value = "orderBy",defaultValue = "") String orderBy){
 
-        return null;
+        return iProductService.getProductByKeywordCategory(keyword,categoryId,pageNum,pageSize,orderBy);
     }
 }

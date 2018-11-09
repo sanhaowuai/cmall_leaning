@@ -24,5 +24,19 @@ public interface ProductMapper {
      */
     List<Product> selectList();
 
+    /**
+     * 根据商品名或产品ID查询产品
+     * @param productName
+     * @param productId
+     * @return
+     */
     List<Product> selectByNameAndProductId(@Param("productName") String productName, @Param("productId") Integer productId);
+
+    /**
+     * 根据商品名或产品IDS查询商品
+     * @param productName，这就是kerword
+     * @param categoryIdList
+     * @return
+     */
+    List<Product> selectByNameAndCategoryIds(@Param("productName")String productName,@Param("categoryIdList")List<Integer> categoryIdList);
 }

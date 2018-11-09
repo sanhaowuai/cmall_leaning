@@ -1,5 +1,10 @@
 package com.mmall.common;
 
+import com.google.common.collect.Sets;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @BelongsProject: cmall
  * @BelongsPackage: com.mmall.common
@@ -11,6 +16,11 @@ public class Const {
 
     //当前用户
     public static final String CURRENT_USER = "currentUser";
+    public interface ProductListOrderBy{
+        //使用Set而不使用List主要原因是Set的contains方法的时间复杂度是O(1),List是O(n),最好是Set
+        //按照价格price降序或者升序
+        Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
+    }
     //内部接口类实现用户分组，使用枚举类也是可以的，只是显得过于臃肿，还需增加描述。
     public interface Role{
         int ROLE_CUSTOMER = 0; //普通用户

@@ -145,6 +145,13 @@ public class ProductServiceImpl implements IProductService {
                 productListVoList.add(productListVo);
             }
         }
+        /*pageHelper分页主要是通过 aop来实现，在执行sql之前会在sql语句中添加limit offset这两个参数。这样就完成了动态的分页
+
+        然而我们需要用vo返回给前端。如果我们用vo里的字段，是和pojo总会有不一致的地方。例如时间的类型，又例如添加的一些枚举状态等。
+        那么为了自动分页，我们会用dao层找到原始的pojoList，(因为pageHelper是对dao层在执行mapper的时候才会动态分页，
+        所以我们要先执行一下mapper)然后转换成vo。那么其实这两个list的集合的分页参数是一致的。所以用了一个比较巧妙的办法。
+        来把vo进行分页,这样就达到了目的
+         */
         PageInfo pageResult = new PageInfo(productList);
         pageResult.setList(productListVoList);
         return ServerResponse.createBySuccess(pageResult);
@@ -227,12 +234,23 @@ public class ProductServiceImpl implements IProductService {
         }
         PageHelper.startPage(pageNum,pageSize);
         //排序处理
-        /*if(StringUtils.isNotBlank(orderBy)){
+        if(StringUtils.isNotBlank(orderBy)){
             if(Const.ProductListOrderBy.PRICE_ASC_DESC.contains(orderBy)){
                 String[] orderByArray = orderBy.split("_");
+                //拼接成类似于price desc
                 PageHelper.orderBy(orderByArray[0]+" "+orderByArray[1]);
             }
-        }*/
-        return null;
+        }
+        List<Product> productList = productMapper.selectByNameAndCategoryIds(StringUtils.isBlank(keyword)?null:keyword,categoryIdList.size()==0?null:categoryIdList);
+        List<ProductListVo> productListVoList = Lists.newArrayList();
+        for(Product product : productList){
+            ProductListVo productListVo = assembleProductListVo(product);
+            productListVoList.add(productListVo);
+        }
+        PageInfo pageInfo = new PageInfo(productList);
+        pageInfo.setList(productListVoList);
+        return ServerResponse.createBySuccess(pageInfo);
     }
+
+
 }

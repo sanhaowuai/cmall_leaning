@@ -60,4 +60,15 @@ public interface IProductService {
      * @return
      */
     ServerResponse<ProductDetailVo> getProductDetail(Integer productId);
+
+    /**
+     * 根据关键词（商品名）或id获取商品
+     * @param keyword
+     * @param categoryId
+     * @param pageNum
+     * @param pageSize
+     * @param orderBy
+     * @return
+     */
+    ServerResponse<PageInfo> getProductByKeywordCategory(String keyword,Integer categoryId,int pageNum,int pageSize,String orderBy);
 }

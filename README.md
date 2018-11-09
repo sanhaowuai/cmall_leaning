@@ -246,6 +246,10 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 
 ## 5.6 前台商品详情、列表、搜索、动态排序
 
+1. 商品详情：portal包中的ProductController中detail方法
+2. 列表、搜索、动态排序：portal包中的ProductController中list方法
+    + 排序使用PageHelper.orderBy
+
 
 
 

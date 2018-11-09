@@ -98,4 +98,11 @@
       update_time =now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--根据用户id和商品id获取购物车信息-->
+  <select id="selectCartByUserIdProductId" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from mmall_cart
+    where user_id=#{userId}
+    and product_id=#{productId}
+  </select>
 </mapper>

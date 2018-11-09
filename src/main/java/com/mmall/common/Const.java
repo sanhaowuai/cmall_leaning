@@ -22,6 +22,10 @@ public class Const {
         //按照价格price降序或者升序
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
     }
+    public interface Cart{
+        int CHECKED = 1;//购物车选中状态
+        int UN_CHECKED = 0;//购物车未选中状态
+    }
     //内部接口类实现用户分组，使用枚举类也是可以的，只是显得过于臃肿，还需增加描述。
     public interface Role{
         int ROLE_CUSTOMER = 0; //普通用户

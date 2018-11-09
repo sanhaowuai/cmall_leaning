@@ -8,7 +8,7 @@ import java.util.Date;
  * @BelongsPackage: com.mmall.vo
  * @Author: 爱迪生
  * @CreateTime: 2018-10-29 09:11
- * @Description: vo
+ * @Description: 商品详情vo
  */
 public class ProductDetailVo {
 

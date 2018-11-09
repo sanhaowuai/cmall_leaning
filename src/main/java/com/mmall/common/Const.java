@@ -16,6 +16,7 @@ public class Const {
 
     //当前用户
     public static final String CURRENT_USER = "currentUser";
+    //商品排序
     public interface ProductListOrderBy{
         //使用Set而不使用List主要原因是Set的contains方法的时间复杂度是O(1),List是O(n),最好是Set
         //按照价格price降序或者升序

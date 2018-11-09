@@ -248,7 +248,8 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 
 1. 商品详情：portal包中的ProductController中detail方法
 2. 列表、搜索、动态排序：portal包中的ProductController中list方法
-    + 排序使用PageHelper.orderBy
+    + 排序使用PageHelper.orderBy,Const中增加接口ProductListOrderBy商品排序字段
+    
 
 
 

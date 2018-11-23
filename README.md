@@ -32,7 +32,10 @@
 >>[5.3 后台商品列表动态分页](#53-后台商品列表动态分页)    
 >>[5.4 后台商品搜索功能](#54-后台商品搜索功能)     
 >>[5.5 后台商品图片的springMvc上传与富文本上传FTP](#55-后台商品图片的springMvc上传与富文本上传FTP)   
->>[5.6 前台商品详情、列表、搜索、动态排序](##56-前台商品详情、列表、搜索、动态排序)    
+>>[5.6 前台商品详情、列表、搜索、动态排序](##56-前台商品详情、列表、搜索、动态排序) 
+
+>[6. 购物车模块](#6-购物车模块)   
+>>[6.1 加入购物车功能开发1](#61-加入购物车功能开发1 )  
 
 
 
@@ -138,6 +141,9 @@
 [配置详解：https://www.cnblogs.com/cb0327/p/5759441.html](https://www.cnblogs.com/cb0327/p/5759441.html)
 
 # 3. 用户模块
+
+idea创建多级文件夹，先将java文件定义为Sources或者Tests,此时在java文件下可出现package选项，新建时可用.作为分割符号
+否则，只能用/符号作为分隔符。
 
 ## 3.1 登陆功能
 
@@ -249,6 +255,18 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 1. 商品详情：portal包中的ProductController中detail方法
 2. 列表、搜索、动态排序：portal包中的ProductController中list方法
     + 排序使用PageHelper.orderBy,Const中增加接口ProductListOrderBy商品排序字段
+    
+# 6. 购物车模块
+
+## 6.1 加入购物车功能开发1
+
+1. 创建CartController类，增加方法add。
+2. 创建IcarService与CarServiceImpl类，增加add与getCartVoLimit方法
+3. Const中增加Cart接口，增加CHECKED与UN_CHECKED状态（购物车中的产品是否选中）
+
+
+
+
     
 
 

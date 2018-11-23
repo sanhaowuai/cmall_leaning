@@ -105,4 +105,10 @@
     where user_id=#{userId}
     and product_id=#{productId}
   </select>
+  <!--根据用户id获取购物车信息-->
+  <select id="selectCartByUserId" parameterType="int" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from mmall_cart
+    where user_id=#{userId}
+  </select>
 </mapper>

@@ -13,8 +13,8 @@
 
 >[3. 用户模块](#3-用户模块) 
 >>[3.1 登陆功能](#31-登陆功能)   
->>[3.2 登出、注册、校验](#32-登出、注册、校验)  
->>[3.3 获取用户登录信息、忘记密码、提示问题与答案](#33-获取用户登录信息、忘记密码、提示问题与答案)  
+>>[3.2 登出 注册 校验](#32-登出-注册-校验)  
+>>[3.3 获取用户登录信息 忘记密码 提示问题与答案](#33-获取用户登录信息-忘记密码-提示问题与答案)  
 >>[3.4 忘记密码中的重置密码](#34-忘记密码中的重置密码)  
 >>[3.5 登陆状态中的重置密码](#35-登陆状态中的重置密码)    
 >>[3.6 更新用户个人信息功能开发](#36-更新用户个人信息功能开发)  
@@ -27,8 +27,8 @@
 >>[4.3 测试](#43-测试)  
 
 >[5. 商品管理模块](#5-商品管理模块)  
->>[5.1 后台商品新增、更新、上下架](#51-后台商品新增、更新、上下架)  
->>[5.2 后台商品详情、propertiesUtil、DateTimeUtil](#52-后台商品详情、propertiesUtil、DateTimeUtil)    
+>>[5.1 后台商品新增 更新 上下架](#51-后台商品新增-更新-上下架)  
+>>[5.2 后台商品详情 propertiesUtil DateTimeUtil](#52-后台商品详情-propertiesUtil-DateTimeUtil)    
 >>[5.3 后台商品列表动态分页](#53-后台商品列表动态分页)    
 >>[5.4 后台商品搜索功能](#54-后台商品搜索功能)     
 >>[5.5 后台商品图片的springMvc上传与富文本上传FTP](#55-后台商品图片的springMvc上传与富文本上传FTP)   
@@ -160,13 +160,13 @@ isSuccess方法，获取构造不同对象的五种方法。
 
 `注意：`若是在service中使用@Autowired注入UserMapper的时候，出现报错，此时，需配置Setting->Editor->Inspections->Spring Core->Code->点中Autowiting for Bean Class，选择右边Severity为warning
 
-## 3.2 登出、注册、校验
+## 3.2 登出 注册 校验
 
 1. 登出方法 logout
 2. 注册方法 register：增加checkUsername与checkEmail校验，Const中增加用户分组，默认注册用户是普通用户
 3. 校验用户名与email方法：checkValid，增加MD5密码加密，Const中增加type类型，username与email，将注册方法中的校验用checkValid进行复用。
 
-## 3.3 获取用户登录信息、忘记密码、提示问题与答案
+## 3.3 获取用户登录信息 忘记密码 提示问题与答案
 
 1. 获取用户信息：getUserInfo
 2. 获取密码提示问题：forgetGetQuestion
@@ -221,14 +221,14 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 
 # 5. 商品管理模块
 
-## 5.1 后台商品新增、更新、上下架
+## 5.1 后台商品新增 更新 上下架
 
 1. 新增ProductManageController类
     + 新增或更新产品：productSave
 2. 新增IProductService,ProductServiceImpl
     + 修改产品销售状态：setSaleStatus
     
-## 5.2 后台商品详情、propertiesUtil、DateTimeUtil   
+## 5.2 后台商品详情 propertiesUtil DateTimeUtil   
 
 1. 新增vo包及ProductDetailVo类
 2. 新增PropertiesUtil读取配置文件公共类

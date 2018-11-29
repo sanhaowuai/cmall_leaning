@@ -63,7 +63,11 @@
     + 查看远程链接 git remote -v
 + 查看本地分支 git branch
 + 本地从远程库更新（第一次链接远程库需要，以后直接git pull）git pull origin master --allow-unrelated-histories
-+ 推送到远程 git push -u origin master
++ 推送到远程 git push -u origin master (将本地的master分支推送到origin主机，同时指定origin为默认主机，以后使用git push)
++ 删除远程库文件夹 
+    + git rm -r --cache filename （仅仅删除暂存区或分支上的文件夹, 本地保留，若不保留，则去掉--cache）
+    + git commit -m 'filename'  
+    + git push -u origin master 
 + 查看远程分支 git branch -r
 + 在远程的master基础上创建本地分支 git checkout -b v1.0 origin/master
     + 在当前的分支上创建v1.0分支：git checkout -b v1.0 
@@ -86,7 +90,6 @@
     + 将编辑器中显示的内容保存，关闭编辑器
 + 以图表形式查看分支：git log --graph    
 + 查看当前仓库的操作日志：git reflog
-    
    
 ## 1.2 版本修改 
 

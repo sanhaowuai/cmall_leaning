@@ -139,6 +139,8 @@
 2. 把上面下载后的mybatis_plus文件夹（也就是点击mybatis_plus-master目录里解压mybatis_plus.zip后的文件夹），是文件夹，不要带上ZIP， 复制到第一步的路径下
 3. 打开我的电脑，找到路径C:\Users\爱迪生\.IntelliJIdea2018.1\config\options，这是本人的电脑路径，把刚下载的文件夹中的mybatis.xml复制到该文件夹下
 
+`注意：`以上方式在2018.3版本的idea中无法使用，可以直接下载插件Free Mybatis plugin，效果是一样的
+
 ## 2.3 logback
 
 [配置详解：https://www.cnblogs.com/cb0327/p/5759441.html](https://www.cnblogs.com/cb0327/p/5759441.html)

@@ -25,6 +25,11 @@ public class Const {
     public interface Cart{
         int CHECKED = 1;//购物车选中状态
         int UN_CHECKED = 0;//购物车未选中状态
+
+        //加入购物车功能
+        String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";//限制失败
+        String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";//限制成功
+
     }
     //内部接口类实现用户分组，使用枚举类也是可以的，只是显得过于臃肿，还需增加描述。
     public interface Role{

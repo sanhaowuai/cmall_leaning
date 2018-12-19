@@ -26,5 +26,12 @@ public interface CartMapper {
      */
     Cart selectCartByUserIdProductId(@Param("userId") Integer userId, @Param("productId") Integer productId);
 
+    /**
+     * 根据用户Id查询购物车
+     * @param userId
+     * @return
+     */
     List<Cart> selectCartByUserId(Integer userId);
+
+    int selectCartProductCheckedStatusByUserId(Integer userId);
 }

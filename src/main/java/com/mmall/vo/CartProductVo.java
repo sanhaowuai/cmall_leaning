@@ -28,13 +28,13 @@ public class CartProductVo {
 
     private BigDecimal productPrice;
 
-    private String productStatus;//商品状态.1-在售 2-下架 3-删除
+    private Integer productStatus;//商品状态.1-在售 2-下架 3-删除
 
     private BigDecimal productTotalPrice;
 
     private Integer productStock;//商品库存
 
-    private Integer productChecker;//此商品是否勾选
+    private Integer productChecked;//此商品是否勾选
 
     private String limitQuantity;//限制数量的一个返回结果
 
@@ -102,11 +102,11 @@ public class CartProductVo {
         this.productPrice = productPrice;
     }
 
-    public String getProductStatus() {
+    public Integer getProductStatus() {
         return productStatus;
     }
 
-    public void setProductStatus(String productStatus) {
+    public void setProductStatus(Integer productStatus) {
         this.productStatus = productStatus;
     }
 
@@ -126,12 +126,12 @@ public class CartProductVo {
         this.productStock = productStock;
     }
 
-    public Integer getProductChecker() {
-        return productChecker;
+    public Integer getProductChecked() {
+        return productChecked;
     }
 
-    public void setProductChecker(Integer productChecker) {
-        this.productChecker = productChecker;
+    public void setProductChecked(Integer productChecked) {
+        this.productChecked = productChecked;
     }
 
     public String getLimitQuantity() {

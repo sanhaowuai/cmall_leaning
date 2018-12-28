@@ -33,5 +33,12 @@ public interface CartMapper {
      */
     List<Cart> selectCartByUserId(Integer userId);
 
+    /**
+     * 是否全选
+     * @param userId
+     * @return
+     */
     int selectCartProductCheckedStatusByUserId(Integer userId);
+
+    int deleteByUserIdProductIds(@Param("userId") Integer userId, @Param("productIdList") List<String> productIdList);
 }

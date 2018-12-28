@@ -95,7 +95,7 @@
       product_id = #{productId,jdbcType=INTEGER},
       quantity = #{quantity,jdbcType=INTEGER},
       checked = #{checked,jdbcType=INTEGER},
-      update_time =now()
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
   <!--根据用户id和商品id获取购物车信息-->
@@ -115,4 +115,15 @@
   <select id="selectCartProductCheckedStatusByUserId" parameterType="int" resultType="int">
     select count(1) from mmall_cart where checked=0 and user_id=#{userId}
   </select>
+  <!--删除商品-->
+  <delete id="deleteByUserIdProductIds" parameterType="map">
+    delete from mmall_cart
+    where user_id=#{userId}
+    <if test="productIdList != null">
+      and product_id in
+      <foreach collection="productIdList" item="item" index="index" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </delete>
 </mapper>

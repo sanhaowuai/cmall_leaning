@@ -35,7 +35,9 @@
 >>[5.6 前台商品详情 列表 搜索 动态排序](#56-前台商品详情-列表-搜索-动态排序) 
 
 >[6. 购物车模块](#6-购物车模块)   
->>[6.1 加入购物车功能开发1](#61-加入购物车功能开发1 )  
+>>[6.1 加入购物车功能开发1](#61-加入购物车功能开发1 )   
+>>[6.2 加入购物车功能开发2](#62-加入购物车功能开发2 )  
+>>[6.3 更新删除购物车商品](#63-更新删除购物车商品)    
 
 
 
@@ -273,13 +275,19 @@ CartController
 2. 创建IcarService与CarServiceImpl类，增加add与getCartVoLimit方法
 3. Const中增加Cart接口，增加CHECKED与UN_CHECKED状态（购物车中的产品是否选中）
 
-### 6.2 加入购物车功能开发2
+## 6.2 加入购物车功能开发2
 
 1. 创建BigDecimalTest测试类,`构造器中的参数一定是String类型`
 2. 创建BigDecimalUtil工具类
 3. 购物车信息动态显示方法  getCartVoLimit
 4. Const中新加入LIMIT_NUM_FAIL与LIMIT_NUM_SUCCESS两个变量（若购物车库存大于实际库存，LIMIT_NUM_FAIL 限制失败）
 5. 购物车中的商品是否全部勾选 getAllCheckedStatus
+
+## 6.3 更新删除购物车商品
+
+1. 新增update方法，使用service中核心展示方法getCartVoLimit返回CartVo
+2. 新增deleteProduct方法，service中使用guava中的Splitter.on将字符串进行分割，并自动填充到List中，利用foreach进行循环查询，
+使用service中核心展示方法getCartVoLimit返回CartVo
 
 `注意：` ctrl+o 查找类中方法
 

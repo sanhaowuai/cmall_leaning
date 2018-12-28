@@ -1,5 +1,6 @@
 package com.mmall.service.impl;
 
+import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
@@ -66,8 +67,34 @@ public class CarServiceImpl implements ICarService {
         return ServerResponse.createBySuccess(cartVo);
     }
 
+    public ServerResponse<CartVo> update(Integer userId,Integer productId,Integer count){
+
+        if(productId == null || count == null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+        Cart cart = cartMapper.selectCartByUserIdProductId(userId,productId);
+        if(cart != null){
+            cart.setQuantity(count);
+        }
+        cartMapper.updateByPrimaryKeySelective(cart);
+        CartVo cartVo = this.getCartVoLimit(userId);
+        return ServerResponse.createBySuccess(cartVo);
+    }
+
+    public ServerResponse<CartVo> deleteProduct(Integer userId,String productIds){
+
+        //使用guava将字符串进行分割，并自动填充到List中。否则自己先用split分割，在进行数组循环
+        List<String> productList = Splitter.on(",").splitToList(productIds);
+        if(CollectionUtils.isEmpty(productList)){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+        cartMapper.deleteByUserIdProductIds(userId,productList);
+        CartVo cartVo = this.getCartVoLimit(userId);
+        return ServerResponse.createBySuccess(cartVo);
+    }
+
     /**
-     * 购车车信息动态显示（包括增加、删除、全选、反选等）
+     * 购车车信息动态显示（包括增加、删除、修改、全选、反选等）
      * @param userId
      * @return
      */

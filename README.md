@@ -269,8 +269,6 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 
 ## 6.1 加入购物车功能开发1
 
-CartController
-
 1. 创建CartController类，增加方法add。
 2. 创建IcarService与CarServiceImpl类，增加add与getCartVoLimit方法
 3. Const中增加Cart接口，增加CHECKED与UN_CHECKED状态（购物车中的产品是否选中）

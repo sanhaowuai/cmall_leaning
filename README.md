@@ -38,6 +38,7 @@
 >>[6.1 加入购物车功能开发1](#61-加入购物车功能开发1 )   
 >>[6.2 加入购物车功能开发2](#62-加入购物车功能开发2 )  
 >>[6.3 更新删除购物车商品](#63-更新删除购物车商品)    
+>>[6.4 全选 全反选 单选 单反选 查询购物车商品数量](#64全选-全反选-单选-单反选-查询购物车商品数量)   
 
 
 
@@ -286,6 +287,12 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 1. 新增update方法，使用service中核心展示方法getCartVoLimit返回CartVo
 2. 新增deleteProduct方法，service中使用guava中的Splitter.on将字符串进行分割，并自动填充到List中，利用foreach进行循环查询，
 使用service中核心展示方法getCartVoLimit返回CartVo
+
+## 6.4 全选 全反选 单选 单反选 查询购物车商品数量
+
+1. 全选、全反选、单选、单反选 参考全选selectAll方法
+2. 查询购物车商品数量 方法getCartProductCount，其中sql使用ifnull 处理查询是null无法转换成int的问题
+
 
 `注意：` ctrl+o 查找类中方法
 

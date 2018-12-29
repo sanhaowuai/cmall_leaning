@@ -36,13 +36,11 @@ public class CarServiceImpl implements ICarService {
     @Autowired
     private ProductMapper productMapper;
 
-    /**
-     * 购物车增加商品
-     * @param userId
-     * @param productId
-     * @param count
-     * @return
-     */
+    public ServerResponse<CartVo> list(Integer userId){
+        CartVo cartVo = this.getCartVoLimit(userId);
+        return ServerResponse.createBySuccess(cartVo);
+    }
+
     public ServerResponse<CartVo> add(Integer userId,Integer productId,Integer count){
 
         if(productId == null || count == null){
@@ -63,8 +61,7 @@ public class CarServiceImpl implements ICarService {
             cart.setQuantity(count);
             cartMapper.updateByPrimaryKeySelective(cart);
         }
-        CartVo cartVo = this.getCartVoLimit(userId);
-        return ServerResponse.createBySuccess(cartVo);
+        return this.list(userId);
     }
 
     public ServerResponse<CartVo> update(Integer userId,Integer productId,Integer count){
@@ -77,8 +74,7 @@ public class CarServiceImpl implements ICarService {
             cart.setQuantity(count);
         }
         cartMapper.updateByPrimaryKeySelective(cart);
-        CartVo cartVo = this.getCartVoLimit(userId);
-        return ServerResponse.createBySuccess(cartVo);
+        return this.list(userId);
     }
 
     public ServerResponse<CartVo> deleteProduct(Integer userId,String productIds){
@@ -89,8 +85,20 @@ public class CarServiceImpl implements ICarService {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         cartMapper.deleteByUserIdProductIds(userId,productList);
-        CartVo cartVo = this.getCartVoLimit(userId);
-        return ServerResponse.createBySuccess(cartVo);
+        return this.list(userId);
+    }
+
+    public ServerResponse<CartVo> selectOrUnSelect(Integer userId,Integer productId,Integer checked){
+
+        cartMapper.checkedOrUncheckedProduct(userId,productId,checked);
+        return this.list(userId);
+    }
+
+    public ServerResponse<Integer> getCartProductCount(Integer userId){
+        if(userId == null){
+            return ServerResponse.createBySuccess(0);
+        }
+        return ServerResponse.createBySuccess(cartMapper.selectCartProductCount(userId));
     }
 
     /**

@@ -40,5 +40,26 @@ public interface CartMapper {
      */
     int selectCartProductCheckedStatusByUserId(Integer userId);
 
+    /**
+     * 删除商品
+     * @param userId
+     * @param productIdList
+     * @return
+     */
     int deleteByUserIdProductIds(@Param("userId") Integer userId, @Param("productIdList") List<String> productIdList);
+
+    /**
+     * 全选、反选、单选、单反选
+     * @param userId
+     * @param checked
+     * @return
+     */
+    int checkedOrUncheckedProduct(@Param("userId") Integer userId, @Param("productId") Integer productId,@Param("checked") Integer checked);
+
+    /**
+     * 查询总数量
+     * @param userId
+     * @return
+     */
+    int selectCartProductCount(@Param("userId") Integer userId);
 }

@@ -13,6 +13,12 @@ import com.mmall.vo.CartVo;
 public interface ICarService {
 
     /**
+     * 查询商品
+     * @param userId
+     * @return
+     */
+    ServerResponse<CartVo> list(Integer userId);
+    /**
      * 添加商品
      * @param userId
      * @param productId
@@ -37,4 +43,19 @@ public interface ICarService {
      * @return
      */
     ServerResponse<CartVo> deleteProduct(Integer userId,String productIds);
+
+    /**
+     * 全选、反选、单选、单反选
+     * @param userId
+     * @param checked
+     * @return
+     */
+    ServerResponse<CartVo> selectOrUnSelect(Integer userId,Integer productId,Integer checked);
+
+    /**
+     * 获取商品总数量
+     * @param userId
+     * @return
+     */
+    ServerResponse<Integer> getCartProductCount(Integer userId);
 }

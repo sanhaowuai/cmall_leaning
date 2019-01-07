@@ -303,6 +303,212 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "shipping",
+			"item": [
+				{
+					"name": "add.do",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8083/shipping/add.do?receiverName=爱迪生&receiverPhone=010&receiverMobile=18688888888&receiverProvince=北京&receiverCity=北京市&receiverAddress=中关村&receiverZip=100000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"shipping",
+								"add.do"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "receiverName",
+									"value": "爱迪生"
+								},
+								{
+									"key": "receiverPhone",
+									"value": "010"
+								},
+								{
+									"key": "receiverMobile",
+									"value": "18688888888"
+								},
+								{
+									"key": "receiverProvince",
+									"value": "北京"
+								},
+								{
+									"key": "receiverCity",
+									"value": "北京市"
+								},
+								{
+									"key": "receiverAddress",
+									"value": "中关村"
+								},
+								{
+									"key": "receiverZip",
+									"value": "100000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del.do",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8083/shipping/del.do?shippingId=30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"shipping",
+								"del.do"
+							],
+							"query": [
+								{
+									"key": "shippingId",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update.do",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8083/shipping/update.do?id=29&receiverName=黄鹤翔&receiverPhone=010&receiverMobile=18688888888&receiverProvince=北京&receiverCity=北京市&receiverAddress=中关村&receiverZip=100000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"shipping",
+								"update.do"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "29"
+								},
+								{
+									"key": "receiverName",
+									"value": "黄鹤翔"
+								},
+								{
+									"key": "receiverPhone",
+									"value": "010"
+								},
+								{
+									"key": "receiverMobile",
+									"value": "18688888888"
+								},
+								{
+									"key": "receiverProvince",
+									"value": "北京"
+								},
+								{
+									"key": "receiverCity",
+									"value": "北京市"
+								},
+								{
+									"key": "receiverAddress",
+									"value": "中关村"
+								},
+								{
+									"key": "receiverZip",
+									"value": "100000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "select.do",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8083/shipping/select.do?shippingId=29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"shipping",
+								"select.do"
+							],
+							"query": [
+								{
+									"key": "shippingId",
+									"value": "29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list.do",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8083/shipping/list.do",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"shipping",
+								"list.do"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

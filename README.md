@@ -72,7 +72,7 @@
     + 删除远程链接 git remote rm origin
     + 查看远程链接 git remote -v
 + 查看本地分支 git branch
-+ 本地从远程库更新（第一次链接远程库需要，以后直接git pull）git pull origin master --allow-unrelated-histories
++ 本地从远程库更新（第一次链接远程库需要，以后直接git pull,在这之前必须保证本地已经提交到本地版本库）git pull origin master --allow-unrelated-histories
 + 推送到远程 git push -u origin master (将本地的master分支推送到origin主机，同时指定origin为默认主机，以后使用git push)
 + 删除远程库文件夹 
     + git rm -r --cache filename （仅仅删除暂存区或分支上的文件夹, 本地保留，若不保留，则去掉--cache）

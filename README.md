@@ -331,6 +331,8 @@ Const.Role.ROLE_ADMIN，若不是，则登陆不成功，若是，则登陆成�
 ## 8.2 支付宝Demo
 
 1. 下载当面付sdk&demo,并打开TradePayDemo项目，需配置zfbinfo.properties文件，然后运行Main.java
+2. [进入natapp官网](https://natapp.cn/)，注册免费使用，也可以付费。[参考1分钟教程](https://natapp.cn/article/natapp_newbie)或者[如何配置NATAPP](https://blog.csdn.net/m0_37987521/article/details/79525515),
+需修改端口为本地端口
 
 
 `注意：` ctrl+o 查找类中方法

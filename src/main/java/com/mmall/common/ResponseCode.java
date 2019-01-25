@@ -7,6 +7,7 @@ package com.mmall.common;
  * @CreateTime: 2018-10-13 17:39
  * @Description: 响应编码枚举类
  */
+//Java是单继承，它已经继承了Enum,不能继承其他类
 public enum ResponseCode {
 
     SUCCESS(0,"SUCCESS"),

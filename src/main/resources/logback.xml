@@ -18,10 +18,12 @@
         <!--<File>/developer/apache-tomcat-7.0.73/logs/mmall.log</File>-->
         <File>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/logs/mmall.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名-->
+            <!-- %d 表示按时间归档， i%表示按日志大小进行归档-->
+            <!--日志文件输出的文件名,yyyy-MM-dd按照天数进行归档（yyyy-MM-dd_HH-mm按照分钟进行归档）-->
             <fileNamePattern>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!--默认为true,新增.gz日志被追加到文件结尾,若是false,则清空以前压缩文件-->
             <append>true</append>
-            <!--日志文件保留天数-->
+            <!--日志文件保留时间或者大小（根据上面的fileNamePattern 归档设置决定）-->
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
@@ -37,11 +39,12 @@
         <File>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/error/mmallError.log</File>
         <!--使用时间的滚动切割策略，每天0点自动生成一份新的日志文件-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--设置为每天滚动-->
             <fileNamePattern>E:/javasoft/JavaEE/tomcat/apache-tomcat-7.0.86/error/mmallError.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <!--<fileNamePattern>d:/mmalllog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
             <!--日志被追加到文件结尾-->
             <append>true</append>
-            <!--最大天数10天-->
+            <!--只保留最近10天.gz-->
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -63,9 +66,9 @@
 
 
 
-    <!-- geelynote mybatis log 日志 -->
+    <!-- mybatis log 日志 -->
     <!--将控制com.mmall.dao包下的所有类的日志的打印，但是并没用设置打印级别，所以继承他的上级<root>的日志级别“DEBUG”；
-没有设置addtivity，默认为true，将此loger的打印信息向上级传递；
+没有设置addtivity，默认为true，将此loger的打印信息向上级传递(子Logger会在root的Logger的appender里输出)；
 没有设置appender，此loger本身不打印任何信息。-->
     <logger name="com.mmall.dao" level="DEBUG"/>
 

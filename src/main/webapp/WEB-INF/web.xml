@@ -14,6 +14,7 @@
             <param-value>UTF-8</param-value>
         </init-param>
         <init-param>
+            <!--只要你设置了foreEncoding=true，则在代码中设置编码格式没用-->
             <param-name>forceEncoding</param-name>
             <param-value>true</param-value>
         </init-param>

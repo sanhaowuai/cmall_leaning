@@ -105,6 +105,8 @@
    
 ## 1.2 版本修改 
 
++[idea回退方法参考](https://blog.csdn.net/pengdeman/article/details/84788112)
+
 + 回退到上一次提交的状态（本地的源码也会变为上一个版本的内容） git revert HEAD  
 + 回退到某个版本（保留源码,可省略--mixed） git reset 057d
     + 不保留源码 git reset --hard 057d

@@ -136,7 +136,7 @@
 + 查看当前仓库的操作日志：git reflog
 
 + 若是通过http方式与github通信，push填写账号密码出现问题时，需要在搜索框中输入：凭据管理器,然后（windows凭证管理栏）,普通凭证下拉打开有你已存在的git账号密码，删除后继续push
-   
++ gitk:可以查看提交记录(若出现乱码，执行以下命令git config --global gui.encoding utf-8)。
 ## 1.2 版本修改 
 
 +[idea回退方法参考](https://blog.csdn.net/pengdeman/article/details/84788112)

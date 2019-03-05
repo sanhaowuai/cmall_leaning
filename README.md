@@ -56,6 +56,40 @@
 
 ## 1.1 常用命令
 
++ [Git安装教程](https://blog.csdn.net/amberom/article/details/79508116)
++ GitHub添加公钥
+    + ssh-keygen -t rsa -C "sanhaowuai@163.com",邮箱是github注册邮箱
+    + 一直Enter就行，随后提示公钥存放位置，一般是c:\user\.ssh,.pub就是公钥
+    + 登录GitHub，点击头像，选择setting，左侧有个SSH and GPG keys ，
+    选择new SSH key ,title随便写，将复制pub的内容黏贴上去ok。
+    + 测试SSH key是否成功的添加到GitHub：ssh -T git@github.com，
+    中途会有如下提示，填写yes即可。
++ 用户名邮箱的设置及修改
+    + git config --global user.name "xxxx"   设置用户名
+    +  git config --global user.email "xxxx"    设置邮箱
+    +  git config user.name     查看用户名
+    +  git config user.email    查看邮箱
+    +  git config --global user.name "xxxx" 修改用户名
+    +  git config --global user.email "xxxx@xxx.com" 修改邮箱
++ [使用Idea从github上获取项目](https://www.cnblogs.com/30go/p/7909246.html)
++ 克隆项目只能克隆master的项目，git branch只有* master,其他分支你在的仓库里面是隐藏的，git branch -a查看，
+如果你想在那个分支工作的话，你就需要创建一个本地分支：git checkout -b v1.0 origin/v1.0,现在，此时：git branch
+会看到多了v1.0。
++ [git克隆出所有分支](http://zhenhappy.github.io/2015/11/12/Git/git-clone-url-all-branches/)
++  跟踪多个远程分支
+    git remote add win32 git://gutup.com/users/joe/myproject-linux-port 
+    ```
+    $ git branch -a  
+     master
+    * v1.0
+      remotes/origin/HEAD -> origin/master
+      remotes/origin/master
+      remotes/origin/v1.0
+      linux/master  
+      linux/new-widgets 
+      
+      会多出inux/master，linux/new-widgets分支。
+    ```
 + 初始化  
     + 普通仓库：git init 
     + 创建裸仓库：git init --bare repo.git

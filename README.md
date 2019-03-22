@@ -116,6 +116,7 @@
 + 查看远程分支 git branch -r
 + 在远程的master基础上创建本地分支 git checkout -b v1.0 origin/master
     + 在当前的分支上创建v1.0分支：git checkout -b v1.0 
+    + 以上语句实际是两条语句的合并：git branch v1.0，git checkout v1.0
 + 将本地分支推送到远程 git push origin HEAD -u
     + 远程分支若没有v1.0,可也直接使用 git push -u origin v1.0
 + 将本地分支修改过的代码推送到远程分支 git push -u origin v1.0
@@ -133,8 +134,11 @@
     + 首先切换到 master 分支：git checkout master
     + 创建合并提交：git merge --no-ff v1.0
     + 将编辑器中显示的内容保存，关闭编辑器
-+ 以图表形式查看分支：git log --graph    
-+ 查看当前仓库的操作日志：git reflog
++ 删除分支
+    + 删除本地分支：git branch -d v1.0
+    + 删除远程分支：git push origin --delete v1.0
++ 以图表形式查看分支：git log --graph，大写Q退出    
++ 查看当前仓库的操作日志：git reflog，大写Q退出 
 
 + 若是通过http方式与github通信，push填写账号密码出现问题时，需要在搜索框中输入：凭据管理器,然后（windows凭证管理栏）,普通凭证下拉打开有你已存在的git账号密码，删除后继续push
 + gitk:可以查看提交记录(若出现乱码，执行以下命令git config --global gui.encoding utf-8)。

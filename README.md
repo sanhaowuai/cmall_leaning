@@ -57,6 +57,7 @@
 ## 1.1 常用命令
 
 + [git官方操作手册](https://git-scm.com/book/zh/v2)
++ [将分支代码合并到master和将master代码合并到dev](https://www.cnblogs.com/fengli9998/p/9291302.html)
 + [Git安装教程](https://blog.csdn.net/amberom/article/details/79508116)
 + GitHub添加公钥
     + ssh-keygen -t rsa -C "sanhaowuai@163.com",邮箱是github注册邮箱

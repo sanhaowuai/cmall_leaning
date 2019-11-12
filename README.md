@@ -173,6 +173,49 @@
       + 这时你会发现，最新版本有回到newVersion。但是代码还是oldVersion的代码，这时候重push到远程仓库就不会版本冲突了 
     + 方法一vs方法二 
       + 方法一会将回退的提交记录抹去，而方法二会保留 
+   
+## 1.3 本地连接多个github账号
+
++ git config --global user.name "你的名称"   回车（如果本地有，就不需要建了，git config）
++ git config --global user.email "你的邮箱"    回车（邮箱随意）
++ ssh-keygen -t rsa -C "你的邮箱"（注意：这里的邮箱必须是github注册的邮箱），再连续3次回车
++ 新建user2的SSH Key，cd ~/.ssh，ssh-keygen -t rsa -C "mywork@email.com"，enter的时候需要填写
+新的秘钥名称，例如：id_rsa_work
++ ssh-agent bash，ssh-add ~/.ssh/id_rsa_work（如果之前只有一个账户的话，如果都没有则需将id_rsa的
+秘钥也这样执行一下，做的目的是为了让SSH识别新的私钥，需将其添加到SSH agent中）
++ 在~/.ssh目录下找到config文件，如果没有就创建,如下：
+```$xslt
+# 第一个账号，默认使用的账号,sanhaowuai2使用，兼职,sanhaowuai2为前缀名，可以任意设置
+Host jianzhi.github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa
+# 第二个账号
+Host github.com  # sanhaowuai使用
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_sanhaowuai
+```
++ ssh -T git@jianzhi.github.com,ssh -T git@github.com,查看是否链接上github
++ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下：
+https://jianzhi.github.com/jianzhiteam/chuangye.git，第二个github账户如下：
+https://github.com/sanhaowuai/chuangye.git
+
+[参考博客](https://blog.csdn.net/qq_36602939/article/details/79794686)   
+[参考博客，仅参考](https://www.cnblogs.com/greyzeng/p/6044837.html)
+
+
+
+## 1.4 github团队协作
+
+1. 创建组织
+2. 在组织中创建仓库
+3. 在组织中创建team
+4. 在组织中给仓库添加team并且设置权限
+
+[GitHub 实现多人协同提交代码并且权限分组管理](https://blog.csdn.net/zhaoyanjun6/article/details/72284974)
+
+### 1.4.1 退回到某一版本
 
 # 2. 配置文件
 

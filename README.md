@@ -212,8 +212,11 @@ https://github.com/sanhaowuai/chuangye.git
 2. 在组织中创建仓库
 3. 在组织中创建team
 4. 在组织中给仓库添加team并且设置权限
+5. 在team中添加成员，根据用户名或者注册邮箱查找，发送邮件，确认后即可进入团队。
 
-[GitHub 实现多人协同提交代码并且权限分组管理](https://blog.csdn.net/zhaoyanjun6/article/details/72284974)
+[GitHub 实现多人协同提交代码并且权限分组管理](https://blog.csdn.net/zhaoyanjun6/article/details/72284974)    
+[利用GitHub进行团队开发,仅供参考](https://blog.csdn.net/jam_fanatic/article/details/82810949)   
+[github怎么邀请合作者加入到自己的项目](https://jingyan.baidu.com/article/948f5924f43f47d80ff5f9f9.html)
 
 ### 1.4.1 退回到某一版本
 

@@ -4,8 +4,9 @@
 >[1. git操作](#1-git-操作)  
 >>[1.1 常用命令](#11-常用命令)  
 >>[1.2 版本修改](#12-版本修改)
->>>[1.2.1 退回到某一版本](#121-退回到某一版本)
->>[1.3 本地连接多个github账号](#13-本地连接多个github账号)
+>>>[1.2.1 退回到某一版本](#121-退回到某一版本)  
+>
+>>[1.3 本地连接多个github账号](#13-本地连接多个github账号)  
 >>[1.4 github团队协作](#14-github团队协作)  
 
 >[2. 配置文件](#2-配置文件) 
@@ -200,7 +201,7 @@ User git
 IdentityFile ~/.ssh/id_rsa_sanhaowuai
 ```
 + ssh -T git@jianzhi.github.com,ssh -T git@github.com,查看是否链接上github
-+ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下：
++ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下[重要：jianzhi.是自己加上去的地址,默认地址是github.com]：
 https://jianzhi.github.com/jianzhiteam/chuangye.git，第二个github账户如下：
 https://github.com/sanhaowuai/chuangye.git
 

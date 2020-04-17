@@ -200,7 +200,7 @@ User git
 IdentityFile ~/.ssh/id_rsa_sanhaowuai
 ```
 + ssh -T git@jianzhi.github.com,ssh -T git@github.com,查看是否链接上github
-+ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下[重要：jianzhi.是自己加上去的地址,默认地址是github.com，这样下载中的文件.git中的config文件中就会有这个信息，这也是区分两个账号的标识]：
++ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下[重要：jianzhi.是自己加上去的地址,默认地址是github.com，这样下载中的文件.git中的config文件中就会有这个信息，这是区分两个账号的标识]：
 https://jianzhi.github.com/jianzhiteam/chuangye.git，第二个github账户如下：
 https://github.com/sanhaowuai/chuangye.git
 

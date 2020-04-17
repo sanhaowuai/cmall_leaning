@@ -182,11 +182,10 @@
 
 + git config --global user.name "你的名称"   回车（如果本地有，就不需要建了，git config）
 + git config --global user.email "你的邮箱"    回车（邮箱随意）
-+ ssh-keygen -t rsa -C "你的邮箱"（注意：这里的邮箱必须是github注册的邮箱），再连续3次回车
++ ssh-keygen -t rsa -C "你的邮箱"（注意：这里的邮箱必须是github注册的邮箱，好像是随意的），再连续3次回车
 + 新建user2的SSH Key，cd ~/.ssh，ssh-keygen -t rsa -C "mywork@email.com"，enter的时候需要填写
 新的秘钥名称，例如：id_rsa_work
-+ ssh-agent bash，ssh-add ~/.ssh/id_rsa_work（如果之前只有一个账户的话，如果都没有则需将id_rsa的
-秘钥也这样执行一下，做的目的是为了让SSH识别新的私钥，需将其添加到SSH agent中）
++ ssh-agent bash，ssh-add ~/.ssh/id_rsa_work（做的目的是为了让SSH识别新的私钥，需将其添加到SSH agent中）
 + 在~/.ssh目录下找到config文件，如果没有就创建,如下：
 ```$xslt
 # 第一个账号，默认使用的账号,sanhaowuai2使用，兼职,sanhaowuai2为前缀名，可以任意设置
@@ -201,7 +200,7 @@ User git
 IdentityFile ~/.ssh/id_rsa_sanhaowuai
 ```
 + ssh -T git@jianzhi.github.com,ssh -T git@github.com,查看是否链接上github
-+ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下[重要：jianzhi.是自己加上去的地址,默认地址是github.com]：
++ 将.pub文件内容分别复制到github的秘钥中，从远程库克隆的时候是如下[重要：jianzhi.是自己加上去的地址,默认地址是github.com，这样下载中的文件.git中的config文件中就会有这个信息，这也是区分两个账号的标识]：
 https://jianzhi.github.com/jianzhiteam/chuangye.git，第二个github账户如下：
 https://github.com/sanhaowuai/chuangye.git
 
